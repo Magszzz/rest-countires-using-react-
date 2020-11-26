@@ -1,19 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./App.css";
 
 // Import Components
 import { Nav } from "./components/Nav";
 import { CountryProvider } from "./context/CountryContext";
+import { Search } from "./components/Search";
+import { Countries } from "./components/Countries";
 
 function App() {
-  // GET CONTEXT API
-  // const value = useContext(CountryList);
+  // State for color Theme
+  const [color, setColor] = useState(false);
 
   return (
     <CountryProvider>
-      <div className="App">
-        {/* <h1>{value}</h1> */}
-        <Nav />
+      <div className={`app ${color ? "dark" : ""} `}>
+        <Nav color={color} setColor={setColor} />
+        <Search />
+        <Countries />
       </div>
     </CountryProvider>
   );
