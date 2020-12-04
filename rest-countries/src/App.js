@@ -16,7 +16,7 @@ function App() {
       <div className={`app ${color ? "dark" : ""} `}>
         <Nav color={color} setColor={setColor} />
         <Search />
-        <Countries />
+        <Countries color={color} />
       </div>
     </CountryProvider>
   );
