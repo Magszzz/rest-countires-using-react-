@@ -1,11 +1,22 @@
 import React from "react";
+import { Countries } from "./Countries";
 
-export function Country({ country, setModal, openModal, setModalDetails }) {
+export function Country({ country, openModal, setModalDetails }) {
   function setDetails() {
     openModal();
     setModalDetails([
       {
         name: country.name,
+        flag: country.flag,
+        nativename: country.nativeName,
+        population: country.population,
+        region: country.region,
+        subregion: country.subregion,
+        capital: country.capital,
+        topLevelDomain: country.topLevelDomain,
+        currencies: country.currencies,
+        languages: country.languages,
+        borders: country.borders,
       },
     ]);
   }
