@@ -4,8 +4,7 @@ import "./App.css";
 // Import Components
 import { Nav } from "./components/Nav";
 import { CountryProvider } from "./context/CountryContext";
-import { Search } from "./components/Search";
-import { Countries } from "./components/Countries";
+import { Main } from "./components/Main";
 
 function App() {
   // State for color Theme
@@ -15,8 +14,7 @@ function App() {
     <CountryProvider>
       <div className={`app ${color ? "dark" : ""} `}>
         <Nav color={color} setColor={setColor} />
-        <Search />
-        <Countries color={color} />
+        <Main color={color} />
       </div>
     </CountryProvider>
   );

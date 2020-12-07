@@ -1,5 +1,5 @@
 import React from "react";
-import { Countries } from "./Countries";
+import { Countries } from "./Main";
 
 export function Country({ country, openModal, setModalDetails }) {
   function setDetails() {

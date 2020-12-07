@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 
-export const Search = () => {
+export const Search = ({ setFilterSearch }) => {
   const [filter, setFilter] = useState(false);
 
+  // Functions
   function openFilter() {
     setFilter((prev) => !prev);
+  }
+
+  // Filter and Search
+  function regionFilter(e) {
+    setFilterSearch(e.target.innerText);
+  }
+
+  function searchCountry(e) {
+    setFilterSearch(e.target.value.toLowerCase());
   }
 
   return (
@@ -15,6 +25,7 @@ export const Search = () => {
           type="text"
           placeholder="Search for a country..."
           className="input"
+          onChange={searchCountry}
         />
       </div>
 
@@ -22,12 +33,12 @@ export const Search = () => {
         Filter by Region
         <i className="fas fa-chevron-down"></i>
         <ul>
-          <li>All</li>
-          <li>Africa</li>
-          <li>Americas</li>
-          <li>Asia</li>
-          <li>Europe</li>
-          <li>Oceania</li>
+          <li onClick={regionFilter}>All</li>
+          <li onClick={regionFilter}>Africa</li>
+          <li onClick={regionFilter}>Americas</li>
+          <li onClick={regionFilter}>Asia</li>
+          <li onClick={regionFilter}>Europe</li>
+          <li onClick={regionFilter}>Oceania</li>
         </ul>
       </div>
     </div>
