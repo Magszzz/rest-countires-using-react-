@@ -1,15 +1,12 @@
 import React from "react";
 
-export const Modals = ({ modalDetails, color, openModal, modal }) => {
+export const Modals = ({ modalDetails, openModal, modal }) => {
   return (
     <div className={`modal-container ${modal ? "modal-open" : ""}`}>
       {modalDetails.map((country) => (
         <div className="modal" key={Math.random() * 9999}>
           <div className="country-content">
-            <button
-              onClick={openModal}
-              className={`btn-mode ${color ? "btn" : ""} `}
-            >
+            <button onClick={openModal} className="btn-mode">
               <i className="fa fa-arrow-left"></i>&nbsp;&nbsp;Back
             </button>
             <div className="flag-img">

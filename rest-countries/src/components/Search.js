@@ -10,7 +10,7 @@ export const Search = ({ setFilterSearch }) => {
 
   // Filter and Search
   function regionFilter(e) {
-    setFilterSearch(e.target.innerText);
+    setFilterSearch(e.target.innerText.toLowerCase());
   }
 
   function searchCountry(e) {

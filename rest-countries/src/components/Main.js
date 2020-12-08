@@ -21,20 +21,28 @@ export const Main = ({ color }) => {
   }
 
   // FILTER Data
+  // country.name.toLowerCase().includes(filterSearch)
 
-  const filtered = countries.filter((country) =>
-    country.name.toLowerCase().includes(filterSearch)
-  );
+  const filtered = countries.filter((country) => {
+    if (filterSearch === "all") {
+      return country.region.toLowerCase().includes("");
+    } else if (
+      filterSearch === "africa" ||
+      filterSearch === "americas" ||
+      filterSearch === "asia" ||
+      filterSearch === "europe" ||
+      filterSearch === "oceania"
+    ) {
+      return country.region.toLowerCase().includes(filterSearch);
+    } else {
+      return country.name.toLowerCase().includes(filterSearch);
+    }
+  });
 
   return (
     <>
       <Search setFilterSearch={setFilterSearch} />
-      <Modals
-        modalDetails={modalDetails}
-        color={color}
-        modal={modal}
-        openModal={openModal}
-      />
+      <Modals modalDetails={modalDetails} modal={modal} openModal={openModal} />
       <Countries
         openModal={openModal}
         filtered={filtered}
